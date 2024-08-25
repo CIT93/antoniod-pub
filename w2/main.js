@@ -22,4 +22,4 @@ const myRide = 6;
 const myTotalcfp = myFoodconsumption+myHomesize+myHousemembers+myPurchases+myRecycle+myRide+myWaste+myWater
 
 const myHeading = document.querySelector("h2");
-myHeading.textContent = "Antonio's Carbon footprint is 94";
+myHeading.textContent = "const myTotalcfp";
