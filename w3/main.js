@@ -27,3 +27,26 @@ const numberInHousehold = 1;
 
 determinHouseHoldPts (3)
 determinHouseHoldPts (4)
+
+//Discussion Post Code
+
+let homeSize = "none";
+const cfpImpact = 0;
+
+function enviormentalImpactPoints(homeSize) {
+  if (homeSize === "large") {
+    cfpImpact = cfpImpact + 10;
+  } else if (homeSize === "medium") {
+    cfpImpact = cfpImpact + 7;
+  } else if (homeSize === "small") {
+    cfpImpact = cfpImpact + 4;
+  } else if (homeSize === "apartment") {
+    cfpImpact = cfpImpact + 2;
+  }
+}
+console.log(
+  `based on the size of your ${homeSize} it will determine your enviormental inmpact points ${cfpImpact}`
+);
+
+enviormentalImpactPoints("apartment");
+enviormentalImpactPoints("apartment");
