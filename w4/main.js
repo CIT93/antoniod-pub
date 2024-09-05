@@ -1,4 +1,4 @@
-const cfpData = [];
+const cfpData = [
 
 function determineHouseholdPts(numberInHousehold) {
     let houseHoldPoints=0;
@@ -54,16 +54,26 @@ console.log(`based on the size of your ${homeSize} it will determine your envior
 );
 return houseSizePts
 }
-}
+
 
 
 function displayOutput() {
-  
+  for (arr of cfpData){
+    console.log(arr)
+    const output = document.getElementById("output");
+    const newP = document.createElement("p");
+    newP.textContent = `cardon Footprint total is ${arr["small"]}`;
+    output.appendChild(newP);
+  }
 }
 
-start(5,"apartment");
+start(5, "apartment");
 start(4,"large");
 start(3,"medium");
 start(2,"small");
 start(4, houseHoldPoints);
 
+displayOutput();
+
+}
+]
