@@ -45,17 +45,17 @@ function determineHouseSizePts(size) {
       hSize: houseSize,
       hHPTS: houseHoldPTS,
       hHSize: houseHoldSize,
-      hTotal: total
+      cfpTotal: total
     });
 
-    cfpData.push(cfpObj)
+    cfpData.push(cfpData)
   }
-  function displayOutput(obj) {
+  function displayOutput() {
     for (obj of cfpData) {
       console.log(obj)  
       const output = document.getElementById("output");
       const newH2 = document.createElement("h2");
-      newH2.textContent = `Carbon Footprint ${obj.hTotal}`;
+      newH2.textContent = `Carbon Footprint ${obj.cfpTotal}`;
       const newH3 = document.createElement("h3");
       newH3.textContent = `size of home`;
       const newP = document.createElement("p");
