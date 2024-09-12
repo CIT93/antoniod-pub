@@ -41,8 +41,8 @@ function determineHouseSizePts(size) {
     const houseHoldSize = determineHouseSizePts(houseSize);
     const total = houseHoldPTS + houseHoldSize;
     cfpData.push({
-      hMem: houseHoldMembers,
-      hSize: houseSize,
+      houseMem: houseHoldMembers,
+      homeSize: houseSize,
       hHPTS: houseHoldPTS,
       hHSize: houseHoldSize,
       cfpTotal: total
@@ -57,10 +57,10 @@ function determineHouseSizePts(size) {
       const newH2 = document.createElement("h2");
       newH2.textContent = `Carbon Footprint ${obj.cfpTotal}`;
       const newH3 = document.createElement("h3");
-      newH3.textContent = `size of home`;
+      newH3.textContent = `size of home ${obj.homeSize}`
       const newP = document.createElement("p");
-      newP.textContent = `The househole members ${obj.hMem} (score:${obj.hHPTS}).`;
-      newP.textContent += ` and ${obj.hSize} size of home (score:${obj.hHSize}).`;
+      newP.textContent = `The household members ${obj.houseMem} (score:${obj.hHPTS}).`;
+      newP.textContent += ` and ${obj.homeSize} size of home (score:${obj.hHSize}).`;
       output.appendChild(newH2);
       output.appendChild(newH3);
       output.appendChild(newP);
@@ -69,10 +69,10 @@ function determineHouseSizePts(size) {
 
   start(5, "apt");
   start(4, "large");
-  start(3, "medium");
+  start(3, "small");
 
 
 
-  console.log(cfpData)
+  displayOutput()
 
   
