@@ -36,7 +36,7 @@ function determineHouseHoldPts(numberInHousehold) {
   return houseHoldPoints;
 }
 
-function start(houseHoldMembers, houseSize, firstName, lastName) {
+function start(houseHoldMembers, houseSize, firstname, lastname) {
   const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
   const houseHoldSize = determineHouseSizePts(houseSize);
   const total = houseHoldPTS + houseHoldSize;
