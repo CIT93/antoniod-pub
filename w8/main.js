@@ -1,10 +1,11 @@
 import { renderTbl } from "./render.js";
 import { determineHouseSizePts, determineHouseHoldPts } from "./carbon.js";
+import {FORM} from "./global.js"
+import {saveLS} from "./storage.js"
 
-const FORM = document.getElementById("form");
-const OUTPUT = document.getElementById("output");
+
 const TBL = document.getElementById("tab-data")
-const cfpData = [];
+
 
 
 
@@ -25,7 +26,7 @@ function start(numberInHousehold, houseSize, firstname, lastname) {
 
 }
 
-
+renderTbl(cfpData)
 
 FORM.addEventListener('submit', function(e){
   e.preventDefault();
@@ -34,7 +35,7 @@ FORM.addEventListener('submit', function(e){
   const houseMembers = parseInt(FORM.housem.value);
   const houseSize = FORM.houses.value;
   start(houseMembers, houseSize, firstName, lastName);
-  OUTPUT.innerHTML = "";
+  saveLS(cfpData)
   renderTbl(cfpData);
   FORM.reset();
 

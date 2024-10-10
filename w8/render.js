@@ -1,5 +1,5 @@
-const TBL = document.getElementById("tab-data")
-const FORM = document.getElementById("form");
+import {FORM, TBL} from "./global.js"
+import {saveLS} from "./storage.js"
 
 function renderTblHeading () {
     const table = document.createElement("table");
@@ -16,6 +16,13 @@ function renderTblHeading () {
     table.appendChild(thead);
     return table
   }
+
+  function onUpdate(index, data) {
+    data.splice(index, 1);
+    saveLS(data)
+    renderTbl(data);
+
+  }
   
   function renderTblBtn(obj, index, data) {
     const td = document.createElement("td");
@@ -26,10 +33,10 @@ function renderTblHeading () {
     td.appendChild(btnEdit);
     td.appendChild(btnDel);
     btnDel.addEventListener('click', function(e){
-      console.log('Hello from delete button')
-      console.log(e);
+      onUpdate(index, data)
 
       data.splice(index, 1);
+      saveLS(data)
       renderTbl(data);
     })
     btnEdit.addEventListener('click', function(e){
@@ -37,8 +44,8 @@ function renderTblHeading () {
       FORM[2].value = obj.lastName;
       FORM[3].value = obj.houseM;
       FORM[4].value = obj.houseS;
-      data.splice(index, 1);
-      renderTbl(data);
+      onUpdate(index, data)
+
     })
     return td;
   }
@@ -65,7 +72,7 @@ function renderTblHeading () {
 
   function renderTbl(data) {
     TBL.innerHTML = "";
-    if(data.length !== 0) {
+    if(data.length  !== 0) {
     const table = renderTblHeading();
     const tbody = renderTblBody(data);
     table.appendChild(tbody);
