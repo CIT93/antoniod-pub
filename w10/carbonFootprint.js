@@ -1,37 +1,34 @@
-const cfpData = [];
-
-const determineHouseSizePts = function(Housesize) {
-  let carbonFootprintPoints = 0;
-  if (Housesize === "large") {
-    carbonFootprintPoints = 10;
-  } else if (Housesize === "medium") {
-    carbonFootprintPoints = 7;
-  } else if (Housesize === "small") {
-    carbonFootprintPoints = 4;
-  } else if (Housesize === "apartment") {
-    carbonFootprintPoints = 2;
+const determineHouseSizePts = (size) =>{
+  let houseSizePoints = 0;
+  if (size === "large") {
+      houseSizePoints = 10;
+  } else if (size === "medium") {
+      houseSizePoints = 7;
+  } else if (size === "small") {
+      houseSizePoints = 4;
+  } else if (size === "apt") {
+      houseSizePoints = 2;
   }
-  return carbonFootprintPoints;
+  return houseSizePoints;
 }
 
-const determineHouseHoldPts = function(numberInHousehold) {
+const  determineHouseholdPts = (numberInHousehold ) =>{
   let houseHoldPoints = 0;
   if (numberInHousehold === 1) {
-    houseHoldPoints = 14;
+      houseHoldPoints = 14;
   } else if (numberInHousehold === 2) {
-    houseHoldPoints = 12;
+      houseHoldPoints = 12;
   } else if (numberInHousehold === 3) {
-    houseHoldPoints = 10;
+      houseHoldPoints = 10;
   } else if (numberInHousehold === 4) {
-    houseHoldPoints = 8;
+      houseHoldPoints = 8;
   } else if (numberInHousehold === 5) {
-    houseHoldPoints = 6;
+      houseHoldPoints = 6;
   } else if (numberInHousehold === 6) {
-    houseHoldPoints = 4;
+      houseHoldPoints = 4;
   } else if (numberInHousehold > 6) {
-    houseHoldPoints = 2;
+      houseHoldPoints = 2;
   }
   return houseHoldPoints;
 }
-
-export { determineHouseSizePts, determineHouseHoldPts };
+export {determineHouseholdPts, determineHouseSizePts};
