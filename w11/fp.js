@@ -37,8 +37,23 @@ class FP {
               this.houseSizePoints = 2;
           }
     }
+    foodChoicePts() {
+      if (this.foodChoice === "dailyMeat") {
+        this.foodChoicePts = 10;
+      } else if (this.foodChoice === "weeklyMeat") {
+        this.foodChoicePts = 8;
+      } else if (this.foodChoice === "vegitarian") {
+        this.foodChoicePts = 4;
+      } else if (this.foodChoice === "vegan") {
+        this.foodChoicePts = 2;
+      }
+
+    }
+
+
+
     total() {
-        this.total = this.houseHoldPoints + this.houseSizePoints
+        this.total = this.houseHoldPoints + this.houseSizePoints + this.foodChoicePts;
     }
 }
-export {FP}
+export { FP }

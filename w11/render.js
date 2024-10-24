@@ -5,7 +5,14 @@ const renderTblHead = () => {
   const table = document.createElement("table");
     const thead = document.createElement("thead");
     const tr = document.createElement("tr");
-    const headingTextArr = ["Name", "HouseHold", "HouseSize", "Footprint", "Actions"];
+    const headingTextArr = [
+      "Name", 
+      "HouseHold", 
+      "HouseSize",
+      "Food Choice", 
+      "Footprint", 
+      "Actions"
+    ];
     headingTextArr.forEach(function(text) {
       const th = document.createElement("th");
       th.textContent = text;
@@ -39,6 +46,7 @@ const onUpdate = (index, data) => {
       FORM.lastName.value = obj.lastN;
       FORM.housem.value = obj.houseMembers;
       FORM.houses.value = obj.houseSize;
+      FORM.foodChoice.value = obj.FoodChoice
       onUpdate(index, data); 
     })
     return td
@@ -50,7 +58,7 @@ const onUpdate = (index, data) => {
       console.log(index);
       const tr = document.createElement("tr");
       for(const [key, value] of Object.entries(obj)){
-        if (key === "firstN" || key === "houseHoldPoints" || key === "houseSizePoints" || key === "hTotal") {
+        if (key !== "firstN" || key !== "houseHoldPoints" || key !== "houseSizePoints" || key !== "foodChoicePts" || key === "hTotal") {
           const td = document.createElement("td");
           td.textContent = value;
           tr.appendChild(td);
@@ -60,7 +68,7 @@ const onUpdate = (index, data) => {
     tr.appendChild(td);
     tbody.appendChild(tr);
     });
-  return tbody
+  return tbody;
   }
   
   const renderTbl = data => {

@@ -1,7 +1,6 @@
-const TBL = document.getElementById("tab-data");
-const FORM = document.getElementById("form");
-const FNAME = document.getElementById("firstName");
-const LNAME = document.getElementById("lastName");
-const SUBMIT = document.getElementById("submitError");
+export const TBL = document.getElementById("tab-data");
+export const FORM = document.getElementById("form");
+export const FNAME = document.getElementById("firstName");
+export const LNAME = document.getElementById("lastName");
+export const SUBMIT = document.getElementById("submitError");
 
-export {TBL, FORM, FNAME, LNAME, SUBMIT};
