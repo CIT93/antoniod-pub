@@ -1,5 +1,5 @@
 class FP {
-    constructor(first, last, houseMembers, houseSize) {
+    constructor(first, last, houseMembers, houseSize, foodChoice) {
         this.first = first
         this.last = last
         this.houseMembers = houseMembers
