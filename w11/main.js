@@ -29,8 +29,7 @@ FORM.addEventListener("submit", e => {
     SUBMIT.textContent = "";
     start(parseInt(FORM.housem.value), FORM.houses.value, FNAME.value, LNAME.value);
     const fpObj = new FP(parseInt(FORM.housem.value), FORM.houses.value, FNAME.value, LNAME.value)
-    // fpObj.houseHoldPoints();
-    // fpObj.houseSizePoints();
+
     cfpData.push(fpObj)
     saveLS(cfpData);
     renderTbl(cfpData); 
@@ -75,47 +74,3 @@ const a = 3;
  })(a);
 
 
-//  const me = {
-    // name: "Antonio",
-    // hairColor: "Black",
-    // location: "Office",
-    // sleepScore: 95,
-    // introduce: Function () {
-        // console.log (this)
-        // console.log (`This is ${this.name} with ${this.hairColor}hair color is in ${this.location} right`)
-    // }
-//  }
-
-//  const you = {
-    // name: "Jan",
-    // hairColor: "Brown",
-    // location: "Home",
-    // sleepScore: 55,
-    // introduce: function() {
-        // console.log(this)
-        // console.log(`This is ${this.name} with ${this.hairColor} hair color is in ${this.location}`)
-    // }
-
-//  }
-
-//  me.introduce();
-//  you.introduce();
-
-// class Human {
-//     constructor(name, hairColor, location, sleepScore){
-//         this.name = name
-//         this.hairColor = hairColor
-//         this.location = location
-//         this.sleepScore = sleepScore
-//     }
-//     introduce () {
-//                 console.log(`This is ${this.name} with ${this.hairColor} hair color is in ${this.location}`)
-
-//     }
-// }
-
-// const rio = new Human("rio", "Red", "office", 95)
-// const jane = new Human ("Jan", "Brown", "Home", 55)
-// rio.introduce();
-// jane.introduce();
-// rio.hrv = 50;

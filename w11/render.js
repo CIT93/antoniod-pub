@@ -57,8 +57,15 @@ const onUpdate = (index, data) => {
     data.forEach(function(obj, index) {
       console.log(index);
       const tr = document.createElement("tr");
+      const keys = [ 
+        "first", 
+        "houseMembers", 
+        "houseSize", 
+        "foodChoice", 
+        "total" 
+      ]
       for(const [key, value] of Object.entries(obj)){
-        if (key !== "firstN" || key !== "houseHoldPoints" || key !== "houseSizePoints" || key !== "foodChoicePts" || key === "hTotal") {
+        if ( key !== "firstN" || key !== "houseHoldPoints" || key !== "houseSizePoints" || key !== "foodChoicePts" || key === "hTotal" ) {
           const td = document.createElement("td");
           td.textContent = value;
           tr.appendChild(td);
