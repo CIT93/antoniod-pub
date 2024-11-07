@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
     const FORM = document.getElementById("form");
 
     const startExercise = (exerciseType, number, time) => {
@@ -18,4 +17,4 @@ document.addEventListener('DOMContentLoaded', () => {
         startExercise(exerciseType, Repsnumber, Time);
         FORM.reset();
     });
-});
+
