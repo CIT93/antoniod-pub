@@ -1,26 +1,22 @@
-const url = "https://jsonplaceholder.typicode.com/photos"
-
+const url = "https://jsonplaceholder.typicode.com/photos";
 
 async function start() {
     try {
-         const data = await fetch (url)
-         const result = await data.json()
-         onSuccess(result.data[1].json)
+        const data = await fetch(url);
+        const result = await data.json();
+        onSuccess(result[1]);
 
-    } catch(e) {
-        onerror(e);
+    } catch (e) {
+        onFailure(e);
     }
-
 }
 
-function onSuccess() {
-    console.log(`Success: ${result}`)
-
+function onSuccess(result) {
+    console.log(`Success: ${JSON.stringify(result)}`);
 }
 
-function onFailure() {
-            console.log(`ERROR: ${err}`)
-
+function onFailure(err) {
+    console.log(`ERROR: ${err}`);
 }
 
-start()
+start();
