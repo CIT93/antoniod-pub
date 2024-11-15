@@ -4,8 +4,7 @@ async function start() {
     try {
         const data = await fetch(url);
         const result = await data.json();
-        onSuccess(result[1]);
-
+        onSuccess(result);
     } catch (e) {
         onFailure(e);
     }
@@ -13,10 +12,25 @@ async function start() {
 
 function onSuccess(result) {
     console.log(`Success: ${JSON.stringify(result)}`);
+    renderPhotos(result);
 }
 
 function onFailure(err) {
     console.log(`ERROR: ${err}`);
 }
 
-start();
+function renderPhotos(photos) {
+    const output = document.getElementById("output");
+
+    
+    output.innerHTML = "";
+
+    photos.forEach((img) => {
+        const imgEl = document.createElement("img");
+        imgEl.setAttribute("src", img.thumbnailUrl);
+        imgEl.setAttribute("alt", img.title); 
+        output.appendChild(imgEl);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", start);
