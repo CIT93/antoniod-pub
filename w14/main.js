@@ -1,36 +1,23 @@
 const url = "https://jsonplaceholder.typicode.com/photos";
-
-async function start() {
-    try {
-        const data = await fetch(url);
-        const result = await data.json();
-        onSuccess(result);
-    } catch (e) {
-        onFailure(e);
-    }
-}
-
-function onSuccess(result) {
-    console.log(`Success: ${JSON.stringify(result)}`);
-    renderPhotos(result);
-}
-
-function onFailure(err) {
-    console.log(`ERROR: ${err}`);
-}
-
 function renderPhotos(photos) {
-    const output = document.getElementById("output");
-
-    
-    output.innerHTML = "";
-
     photos.forEach((img) => {
         const imgEl = document.createElement("img");
         imgEl.setAttribute("src", img.thumbnailUrl);
-        imgEl.setAttribute("alt", img.title); 
-        output.appendChild(imgEl);
+        document.getElementById("output").appendChild(imgEl);
     });
 }
-
-document.addEventListener("DOMContentLoaded", start);
+async function getData() {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    if (response.status === 200) {
+      console.log("Success:", data);
+      renderPhotos(data);
+    } else {
+      console.log("Server Error", data);
+    }
+  } catch (error) {
+    console.log("Fetch Error", error);
+  }
+}
+getData();
