@@ -4,8 +4,10 @@ class FP {
         this.last = last
         this.houseMembers = houseMembers
         this.houseSize = houseSize
+        this.foodChoice = foodChoice
         this.houseHoldPoints();
         this.houseSizePoints();
+        this.foodChoicePts()
         this.total();
 
     }
