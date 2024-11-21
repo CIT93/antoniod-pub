@@ -76,18 +76,34 @@ const renderTblRow = (data) => {
   });
   return tbody;
 };
-function addRow(myTable) {
+// function addRow(myTable) {
+//   let newRow = tableRef.insertRow(-1);
+// }
+
+const calculateAvg = (cfpData) => { cfpData = (2) [{},{}]
+  const reduceTotal = cfpData.reduce((sum, ea) => sum + ea.total, 0 )
+  const tableRef= document.getElementById("table-id")
   let newRow = tableRef.insertRow(-1);
+  let newCell = newRow.insertCell(0);
+  let newCell_1 = newRow.insertCell(0);
+  let newCell_2 = newRow.insertCell(0);
+  let newCell_3 = newRow.insertCell(0);
+  let newCell_4 = newRow.insertCell(0);
+  let newLabl = document.createTextNode(`Average Footprint`);
+  let newText = document.createTextNode(`${Math.floor(reduceTotal/data.length)}`);
+  newCell_1.appendChild(newLabl);
+  newCell.appendchild(newText);
 }
 
-const renderTbl = (data) => {
+const renderTbl = (cfpData) => {
   TBL.innerHTML = "";
-  if (data.length !== 0) {
+  if (cfpData.length !== 0) {
     const table = renderTblHead();
-    const tbody = renderTblRow(data);
+    const tbody = renderTblRow(cfpData);
     table.appendChild(tbody);
     TBL.appendChild(table);
+    calculateAvg(cfpData)
   }
 };
 
-export { renderTbl, addRow };
+export { renderTbl };

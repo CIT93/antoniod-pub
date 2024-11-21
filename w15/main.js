@@ -1,5 +1,5 @@
 import { FORM, FNAME, LNAME, SUBMIT } from "./global.js";
-import { renderTbl, addRow } from "./render.js";
+import { renderTbl } from "./render.js";
 import { cfpData, saveLS } from "./storage.js";
 import { FP } from "./fp.js";
 
