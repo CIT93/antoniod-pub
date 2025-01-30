@@ -39,11 +39,12 @@ function determineHomesizePts(houseSize) {
   } else if (houseSize === "apartment") {
     cfpHomesizePts = cfpHomesizePts + 2;
   }
+console.log(
+  `Based on the size of your ${houseSize}, it will determine your environmental impact points: ${cfpHomesizePts}`
+);
 }
 
 determineHomesizePts(houseSize);
 
-console.log(
-  `Based on the size of your ${houseSize}, it will determine your environmental impact points: ${cfpHomesizePts}`
-);
+
 
