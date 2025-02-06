@@ -1,55 +1,81 @@
-const cfpData = []
+const cfpData = [];
+function determineHouseSizePts(size) {
+  let houseSizePoint = 0;
+  if (size === "large") {
+    houseSizePoint = 10;
+  } else if (size === "medium") {
+    houseSizePoint = 7;
+  } else if (size === "small") {
+    houseSizePoint = 4;
+  } else if (size === "apt") {
+    houseSizePoint = 2;
+  }
+  return houseSizePoint;
+}
 
-function determineHouseholdPts(numberInHousehold) {
-  let carbonFootprintPoints = 0;
+function determineHouseHoldPts(numberInHousehold) {
+  let houseHoldPoints = 0;
   if (numberInHousehold === 1) {
-    carbonFootprintPoints = 14;
+    houseHoldPoints = 14;
   } else if (numberInHousehold === 2) {
-    carbonFootprintPoints = 12;
+    houseHoldPoints = 12;
   } else if (numberInHousehold === 3) {
-    carbonFootprintPoints = 10;
+    houseHoldPoints = 10;
   } else if (numberInHousehold === 4) {
-    carbonFootprintPoints = 8;
+    houseHoldPoints = 8;
   } else if (numberInHousehold === 5) {
-    carbonFootprintPoints = 6;
+    houseHoldPoints = 6;
   } else if (numberInHousehold === 6) {
-    carbonFootprintPoints = 4;
+    houseHoldPoints = 4;
   } else if (numberInHousehold > 6) {
-    carbonFootprintPoints = 2;
+    houseHoldPoints = 2;
   }
-  return carbonFootprintPoints;
+
+  return houseHoldPoints;
 }
 
-function determineHomesizePts(houseSize) {
-  let cfpHomesizePts = 0;
-  if (houseSize === "large") {
-    cfpHomesizePts = 10;
-  } else if (houseSize === "medium") {
-    cfpHomesizePts = 7;
-  } else if (houseSize === "small") {
-    cfpHomesizePts = 4;
-  } else if (houseSize === "apartment") {
-    cfpHomesizePts = 2;
-  }
-  return cfpHomesizePts;
+function start(houseHoldMembers, houseSize) {
+  const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
+  const houseSizePTS = determineHouseSizePts(houseSize);
+  const total = houseHoldPTS + houseSizePTS;
+  cfpData.push([
+    houseHoldMembers,
+    houseSize,
+    houseHoldPTS,
+    houseSizePTS,
+    total,
+  ]);
 }
-
-function start(houseSize, numberInHousehold) {
-  const cfpHomesizePts = determineHomesizePts(houseSize);
-  const carbonFootprintPoints = determineHouseholdPts(numberInHousehold);
-  const total = cfpHomesizePts + carbonFootprintPoints;
-  cfpData.push([numberInHousehold, houseSize, cfpHomesizePts, carbonFootprintPoints, total])
-}
-
 function displayOutput() {
-    
+  for (arr of cfpData) {
+    console.log(arr);
+    const output = document.getElementById("output");
+    const newP = document.createElement("p");
+
+    newP.textContent = `Number of household menbers: ${arr[0]}, Score based on Number of Household Members: ${arr[2]}, Size of House: ${arr[1]}, Score base on Size of House: ${arr[3]}, Total Carbon Footprint: ${arr[4]}`;
+    output.appendChild(newP);
+  }
 }
 
-start(1, "small");
+start(5, "apt");
+start(4, "large");
+start(3, "medium");
+start(5, "large");
 start(5, "medium");
-start(6, "large");
-start(7, "apartment");
+start(5, "small");
+start(4, "apt");
+start(4, "medium");
+start(4, "small");
+start(3, "large");
+start(3, "aprt");
+start(3, "small");
+start(2, "large");
+start(2, "medium");
+start(2, "small");
+start(2, "apt");
+start(1, "large");
+start(1, "medium");
+start(1, "small");
+start(1, "apt");
 
-
-displayOutput()
-
+displayOutput();
