@@ -99,11 +99,12 @@
 
 const movieArray = [];
 
-function addMovie(movieTitle, movieYear, movieRating) {
+function addMovie(movieTitle, movieYear, movieRating, timesWatched) {
     const movieObj = {
         movieTitle: movieTitle,
         movieYear: movieYear,
         movieRating: movieRating,
+        watched: timesWatched
     };
 
     movieArray.push(movieObj);
@@ -112,16 +113,19 @@ function addMovie(movieTitle, movieYear, movieRating) {
 function displayMovies() {
     const output = document.getElementById("output");
 
-    for(movieObj of movieArray) {
+    movieArray.forEach(movie => {
         const newH2 = document.createElement("h2");
-        newH2.textContent = `The movie ${movieObj.movieTitle} released in the year (${movieObj.movieYear}) has a rating of ${movieObj.movieRating}/10`;
-
+        if (movie.movieRating >= 7 && movie.watched >= 3) {
+            newH2.textContent = `The movie ${movie.movieTitle} released in the year (${movie.movieYear}) has a rating of ${movie.movieRating}/10`;
+        } else {
+            newH2.textContent = `null`;
+        }
         output.appendChild(newH2);
-    }
+    });
 }
 
-addMovie("The Lion King", 1994, 8.5);
-addMovie("Romy and Michele's High School Reunion", 1997, 6.3);
-addMovie("But I'm a Cheerleader", 1999, 6.8);
-addMovie("Wicked", 2024, 7.6);
+addMovie("The Lion King", 1994, 8.5, 5);
+addMovie("Romy and Michele's High School Reunion", 1997, 6.3, 2);
+addMovie("But I'm a Cheerleader", 1999, 6.8, 1);
+addMovie("Wicked", 2024, 7.6, 4);
 displayMovies();
