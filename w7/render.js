@@ -48,4 +48,6 @@ function renderTblHeading() {
     TBL.appendChild(table);
   }
 
+  
+
   export {renderTbl, renderTblHeading};
