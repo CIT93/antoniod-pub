@@ -1,3 +1,5 @@
+const output = document.getElementById("output");
+const moviesTable = document.getElementById("movies-data");
 const movieArray = [
     { movieTitle: "The Lion King", movieYear: 1994, movieRating: 8.5, watched: 5 },
     { movieTitle: "Romy and Michele's High School Reunion", movieYear: 1997, movieRating: 6.3, watched: 2 },
@@ -5,12 +7,11 @@ const movieArray = [
     { movieTitle: "Wicked", movieYear: 2024, movieRating: 7.6, watched: 4 }
 ];
 
-function displayMovies() {
-    const output = document.getElementById("output");
-    const table = document.getElementById("table");
-
-    table.innerHTML = ""; 
+function displayOutMovies() {
+    moviesTable.innerHTML = "";
     output.innerHTML = ""; 
+  
+    const table = document.createElement("table");
 
     const thead = document.createElement("thead");
     const tr = document.createElement("tr");
@@ -27,10 +28,10 @@ function displayMovies() {
 
     const tbody = document.createElement("tbody");
 
-    movieArray.forEach(function (movie) {
-        if (movie.movieRating > 6 && movie.watched < 5) {
+    movieArray.forEach(function (obj) {
+        if (obj.movieRating > 6 && obj.watched < 5) {
             const newH1 = document.createElement("h1");
-            newH1.textContent = `Movies I like`;
+            newH1.textContent = `Antonio's favorite movies`;
             output.appendChild(newH1);
 
             const tr = document.createElement("tr");
@@ -40,10 +41,10 @@ function displayMovies() {
             const tdRating = document.createElement("td");
             const tdWatched = document.createElement("td");
 
-            tdTitle.textContent = movie.movieTitle;
-            tdYear.textContent = movie.movieYear;
-            tdRating.textContent = movie.movieRating;
-            tdWatched.textContent = movie.watched;
+            tdTitle.textContent = obj.movieTitle;
+            tdYear.textContent = obj.movieYear;
+            tdRating.textContent = obj.movieRating;
+            tdWatched.textContent = obj.watched;
 
             tr.appendChild(tdTitle);
             tr.appendChild(tdYear);
@@ -55,6 +56,7 @@ function displayMovies() {
     });
 
     table.appendChild(tbody);
+    moviesTable.appendChild(table);
 }
 
-displayMovies();
+displayOutMovies();
