@@ -40,9 +40,9 @@ function renderTblBtn(obj, index, data) {
   btnEdit.addEventListener("click", function (e) {
     FORM[1].value = obj.firstName;
     FORM[2].value = obj.lastName;
+    FORM[3].value = obj.houseHold;
 
-    FORM[3].value = obj.houseS;
-    FORM[4].value = obj.householdMembers;
+    FORM[4].value = obj.houseSize;
 
     renderTbl(data);
   });

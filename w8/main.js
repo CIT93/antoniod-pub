@@ -5,15 +5,15 @@ const FORM = document.getElementById("form");
 const OUTPUT = document.getElementById("output");
 const cfpData = [];
 
-function displayOutObj(obj) {
-  const output = document.getElementById("output");
-  const newH1 = document.createElement("h1");
-  newH1.textContent = `${obj.firstName} ${obj.lastName} has a `;
-  const newH2 = document.createElement("h2");
-  newH2.textContent = `Carbon Footprint total is ${obj.cfpTotal}`;
-  output.appendChild(newH1);
-  output.appendChild(newH2);
-}
+// function displayOutObj(obj) {
+//   const output = document.getElementById("output");
+//   const newH1 = document.createElement("h1");
+//   newH1.textContent = `${obj.firstName} ${obj.lastName} has a `;
+//   const newH2 = document.createElement("h2");
+//   newH2.textContent = `Carbon Footprint total is ${obj.cfpTotal}`;
+//   output.appendChild(newH1);
+//   output.appendChild(newH2);
+// }
 
 function start(houseHoldMembers, houseSize, firstName, lastName) {
   const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
