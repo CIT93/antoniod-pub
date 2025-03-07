@@ -2,7 +2,6 @@ const TBL = document.getElementById("tab-data");
 const FORM = document.getElementById("form");
 
 function renderTblHeading() {
-//   TBL.innerHTML = "";
   const table = document.createElement("table");
   const thead = document.createElement("thead");
   const tr = document.createElement("tr");
@@ -35,24 +34,25 @@ function renderTblBtn(obj, index, data) {
   btnDelete.addEventListener("click", function (e) {
     console.log("Delete Button");
     console.log(e);
-    data.splice(index, 1)
-    renderTbl(data)
+    data.splice(index, 1);
+    renderTbl(data);
   });
-  btnEdit.addEventListener("click", function(e){
+  btnEdit.addEventListener("click", function (e) {
     FORM[1].value = obj.firstName;
     FORM[2].value = obj.lastName;
-    FORM[3].value = obj.houseHoldMembers;
-    FORM[4].value = obj.houseSize;
-    renderTbl(data);
 
-  })
-  return td
+    FORM[3].value = obj.houseS;
+    FORM[4].value = obj.householdMembers;
+
+    renderTbl(data);
+  });
+  return td;
 }
 
 function renderTblBody(data) {
   const tbody = document.createElement("tbody");
   data.forEach(function (obj, index) {
-    console.log(index)
+    console.log(index);
     const tr = document.createElement("tr");
     for (const [key, value] of Object.entries(obj)) {
       if (
@@ -65,7 +65,7 @@ function renderTblBody(data) {
         tr.appendChild(td);
       }
     }
-    const td = renderTblBtn(obj, index, data)
+    const td = renderTblBtn(obj, index, data);
     tr.appendChild(td);
     tbody.appendChild(tr);
   });
@@ -73,12 +73,13 @@ function renderTblBody(data) {
 }
 
 function renderTbl(data) {
-    if (data.length !== 0) {
-  const table = renderTblHeading();
-  const tbody = renderTblBody(data);
-  table.appendChild(tbody);
-  TBL.appendChild(table);
-    }
+  TBL.innerHTML = "";
+  if (data.length !== 0) {
+    const table = renderTblHeading();
+    const tbody = renderTblBody(data);
+    table.appendChild(tbody);
+    TBL.appendChild(table);
+  }
 }
 
 export { renderTbl, renderTblHeading };
