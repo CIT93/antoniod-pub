@@ -25,3 +25,9 @@ td {
 tbody tr:nth-child(odd) {
     background-color: crimson;
 }
+.error {
+    color: red
+}
+.invalid {
+    border-color: red
+}
