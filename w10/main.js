@@ -3,7 +3,7 @@ import { determineHouseHoldPts, determineHouseSizePts } from "./cfp.js";
 import { FORM, FNAME, LNAME, SUBMIT } from "./global.js";
 import { saveLS, cfpData } from "./storage.js";
 
-const start = function (first, last, houseHoldMembers, houseSize) {
+const start =(first, last, houseHoldMembers, houseSize) => {
   const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
   const houseSizePTS = determineHouseSizePts(houseSize);
   const total = houseHoldPTS + houseSizePTS;
@@ -20,7 +20,7 @@ const start = function (first, last, houseHoldMembers, houseSize) {
 
 renderTbl(cfpData);
 
-const validateField = function (event) {
+const validateField = event => {
   const field = event.target.value;
   const fieldId = event.target.id;
   const fieldError = document.getElementById(`${fieldId}Error`);
