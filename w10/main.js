@@ -19,8 +19,8 @@ import { saveLS, cfpData } from "./storage.js";
 // };
 
 const start =(...i) => {
-  const houseHoldPTS = determineHouseHoldPts(i[2]);
-  const houseSizePTS = determineHouseSizePts(i[3]);
+  const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
+  const houseSizePTS = determineHouseSizePts(houseSize);
   const total = houseHoldPTS + houseSizePTS;
   cfpData.push({
     firstName: i[0],
