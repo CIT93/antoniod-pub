@@ -31,7 +31,7 @@
         </div>
         <div>
           <label>Count the members of your household:</label>
-          <input type="number" name="householdm" min="1" max="6" required />
+          <input type="number" name="housem" min="1" max="6" required />
         </div>
         <div>
           <label>Consider the size of your home:</label>
@@ -45,14 +45,37 @@
         </div>
         <div>
             <label>Evaluate your food choices:</label>
-            <select name="foodc" required>
+            <select name="food" required>
                 <option value="">---Please Enter Types of Food---</option>
-                <option value="dailyMeat">Meat on daily basis</option>
-                <option value="fewMeat">Meat only few times per week</option>
+                <option value="meatDaily">Meat on daily basis</option>
+                <option value="meatWeekly">Meat only few times per week</option>
                 <option value="vegetarian">Vegetarian</option>
                 <option value="veganOrWild">Vegan or only wild meat</option>
             </select>
         </div>
+        <div>
+          <label for="">Evauluate your food source:</label>
+          <select name="foodSource" id="">
+              <option value="">---Choose Food Source---</option>
+              <option value="packed">Prepacked foods only</option>
+              <option value="balance">Fresh & prepacked foods</option>
+              <option value="local">Fresh foods only</option>
+          </select>            
+      </div>
+      <div>
+        <label for="">Evauluate your water Consupmtion:</label>
+        <select name="water" id="">
+            <option value="">---Select Water Consumption---</option>
+            <option value="3">Run Dishwasher 9 or more times a week</option>
+            <option value="2">Run Dishwasher 4-9 times a week</option>
+            <option value="1">Run Dishwasher once per week</option>
+            <option value="0">No Dishwasher</option>
+
+        </select>            
+    </div>
+    <label for="washer">Do you own both a Dishwasher and Washing Machine?</label>
+                <input type="checkbox" name="washer" id="dishWash" checked>
+    
         <button type="submit">Submit</button>
         <span id="submitError" class="error"></span>
       </fieldset>
